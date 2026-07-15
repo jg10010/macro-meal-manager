@@ -5,7 +5,7 @@ import java.util.List;
 public class MealPlan {
     private List<Meal> meals;
 
-    // EFFECTS: Creates a new MealPlan that is empty
+    // EFFECTS: Constructs MealPlan that is empty
     public MealPlan() {
         // stub;
     }

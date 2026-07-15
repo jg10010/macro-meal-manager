@@ -9,26 +9,28 @@ public class Meal {
     private int fat;
     private String dietPref;
 
+    //EFFECTS: Constructs Meal with name, 
+    //calories, portein, fat and diet Preference
     public Meal(String name, int calories, int protein, int fat, String dietPref) {
         // stub
     }
-
+//EFFECTS: Returns name of a meal
     public String getName() {
         return null; // stub
     }
-
+//EFFECTS: Returns calories in a meal
     public int getCalories() {
         return 0; // stub
     }
-
+//EFFECTS: Returns protein in a meal
     public int getProtein() {
         return 0; // stub
     }
-
+//EFFECTS: Returns fat in a meal
     public int getFat() {
         return 0; // stub
     }
-
+//EFFECTS: Returns Dietary Preference category of a meal
     public String getDietPref() {
         return null; // stub
     }
