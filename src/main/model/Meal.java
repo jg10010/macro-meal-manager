@@ -15,8 +15,25 @@ public Meal (String name, int calories, int protein, int fat, String dietPref) {
 }
 
 
+public String getName() {
+   return null; //stub
+}
 
+public int getCalories(){
+    return 0; //stub
+}
 
+public int getProtein(){
+    return 0; //stub
+}
+
+public int getFat(){
+    return 0; //stub
+}
+
+public String getDietPref() {
+   return null; //stub
+}
 
 }
 
