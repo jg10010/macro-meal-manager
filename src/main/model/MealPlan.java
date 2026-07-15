@@ -13,14 +13,14 @@ public class MealPlan {
     // REQUIRES: meal is not null
     // MODIFIES: this
     // EFFECTS: Adds meal to meal plan
-    public void addMeal() {
+    public void addMeal(Meal meal) {
         // stub;
     }
 
     // REQUIRES: meal is not null
     // MODIFIES: this
     // EFFECTS: Removes meal from meal plan
-public void removeMeal(){
+public void removeMeal(Meal meal){
     // stub;
 
     // EFFECTS: Returns list of meals in MealPlan
@@ -44,7 +44,7 @@ public void removeMeal(){
     }
 
     // EFFECTS: Returns a new list of meals with preferred dietary category
-    public List<Meal> filterDietaryPref() {
+    public List<Meal> filterDietaryPref(String dietPref) {
         return null; // stub
     }
 }
