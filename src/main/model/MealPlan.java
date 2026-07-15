@@ -7,7 +7,7 @@ public class MealPlan {
 
     // EFFECTS: Constructs MealPlan that is empty
     public MealPlan() {
-        // stub;
+        // stub
     }
 
     // REQUIRES: meal is not null
@@ -19,9 +19,11 @@ public class MealPlan {
 
     // REQUIRES: meal is not null
     // MODIFIES: this
-    // EFFECTS: Removes meal from meal plan
-public void removeMeal(Meal meal){
-    // stub;
+    // EFFECTS: Removes meal from meal plan if present and returns true,
+    // else returns false if meal not resent
+    public boolean removeMeal(Meal meal) {
+        return false// stub;
+    }
 
     // EFFECTS: Returns list of meals in MealPlan
     public List<Meal> getMeals() {
