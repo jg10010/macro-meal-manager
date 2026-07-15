@@ -4,10 +4,19 @@ package model;
 // Represents a single meal with the amount of 
 // calories, protein, fat, and the dietary preference.
 public class Meal {
-    String name;
-    int calories;
-    int protein;
-    int fat;
-    String dietPref;
-    }
+  private  String name;
+  private  int calories;
+  private  int protein;
+  private  int fat;
+  private  String dietPref;
+    
+public Meal (String name, int calories, int protein, int fat, String dietPref) {
+    //stub   
+}
+
+
+
+
+
+}
 
