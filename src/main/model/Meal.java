@@ -1,5 +1,7 @@
 package model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 // Represents a single meal with the amount of 
 // calories, protein, fat, and the dietary preference.
 public class Meal {
@@ -60,6 +62,25 @@ public class Meal {
     // if 0 <= mealScore < 30, then rating = very poor
     // if mealScore < 0, then rating = terrible
 public String mealRating() {
-    return "h"; //stub
+    int score = mealScore();
+
+    if (score >= 100) {
+        return "incredible";
+    } else if (score >= 80) {
+        return "very good";
+    }   
+    else if (score >= 50) {
+        return "good";
+    }
+    else if (score >= 30) {
+        return "poor";
+    }
+    else if (score >= 0) {
+        return "very poor";
+    }
+    else {
+        return "terrible";
+    }
+
 }
 }
