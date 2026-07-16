@@ -15,7 +15,7 @@ public class MealPlanApp {
     public MealPlanApp() {
         mealPlan = new MealPlan();
         input = new Scanner(System.in);
-        runApp();
+
     }
 
     // EFFECTS: Reads user input,
@@ -65,6 +65,10 @@ public class MealPlanApp {
         }
     }
 
+    // REQUIRES" Calories, Protein, Fat >=0
+    // MODIFIES: this
+    // EFFECTS: Add meal with name, calories, protein, fat, diet preference to
+    // MealPlan
     public void doAddMeal() {
         System.out.println("Enter meal name");
         input.nextLine();
@@ -87,6 +91,9 @@ public class MealPlanApp {
         mealPlan.addMeal(meal);
     }
 
+    // MODIFIES: this
+    // EFFECTS: if present, removes meal with specified name from MealPlan.
+    // if not present, returns meal not found
     public void doRemoveMeal() {
         System.out.println("Enter the name of meal to remove");
         input.nextLine();
@@ -101,6 +108,7 @@ public class MealPlanApp {
         }
     }
 
+    // EFFECTS: Prints all meals in MealPlan or message if empty
     public void doViewMeals() {
         if (mealPlan.getMeals().isEmpty()) {
             System.out.println("No meals in list");
@@ -111,6 +119,7 @@ public class MealPlanApp {
         }
     }
 
+    // EFFECTS: Prints meals with matching diet preference or message if none
     public void doFilterMeals() {
         System.out.println("Enter dietary preference to filter by");
         input.nextLine();
@@ -129,6 +138,9 @@ public class MealPlanApp {
         }
     }
 
+    // REQUIRES: CalorieGoal, ProteinGoal, and FatGoal >= 0
+    // EFFECTS: Produces true if daily macro goals have been fulfuiled,
+    // false otherwise
     public void doDailyMacro() {
         System.out.println("Enter Calorie goal");
         int calorieGoal = input.nextInt();
