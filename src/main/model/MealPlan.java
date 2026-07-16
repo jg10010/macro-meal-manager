@@ -82,7 +82,12 @@ public class MealPlan {
 //                      and total protein >= protein Goal
 //                      and total fat >= fatGoal
 public boolean dailyMacroRequirements(int calorieGoal, int proteinGoal, int fatGoal) {
-    return false; //stub
+    if ((totalCalories() >= calorieGoal) && 
+    (totalProtein() >= proteinGoal) &&
+    (totalFat() >= fatGoal)) {
+        return true;
+    }
+    return false;
 }
 
 
