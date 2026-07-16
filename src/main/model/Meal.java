@@ -10,7 +10,7 @@ public class Meal {
     private String dietPref;
 
     // EFFECTS: Constructs Meal with name,
-    // calories, portein, fat and diet Preference
+    // calories, protein, fat and diet Preference
     public Meal(String name, int calories, int protein, int fat, String dietPref) {
         // stub
     }
@@ -40,8 +40,12 @@ public class Meal {
         return null; // stub
     }
 
-    // EFFECTS: Returns a score of the healthiness of a meal
-    public int healthScore() {
-        return 0; // stub
+    // EFFECTS: Returns a score of the healthiness of a meal based on
+    // calories, protein, and fat. The formula used is
+    // (Protein*3) - Fat - (Calories/20)+40
+    public int mealScore() {
+        return (getProtein() * 3) - getFat() - (getCalories() / 20);
     }
+
+
 }
