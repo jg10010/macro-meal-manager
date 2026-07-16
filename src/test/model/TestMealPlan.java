@@ -129,4 +129,20 @@ public class TestMealPlan {
         assertTrue(veganMeals.isEmpty());
     }
 
+    // EFFECTS: Tests if dailyMcaroRequirements returns true if all three totals
+    // exceed or equal goals in mealPlan, else returns false
+    @Test
+    public void testdailyMacroRequirements() {
+
+        mealPlan.addMeal(m1); // 400, 20, 20
+        mealPlan.addMeal(m2); // 700, 40, 60
+        mealPlan.addMeal(m3); // 150, 5, 15
+        // exceeds case
+        assertTrue(mealPlan.dailyMacroRequirements(1, 1, 1));
+        // equals case
+        assertTrue(mealPlan.dailyMacroRequirements(1250, 65, 95));
+        // less than case
+        assertFalse(mealPlan.dailyMacroRequirements(2000, 200, 200));
+    }
+
 }

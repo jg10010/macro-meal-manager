@@ -75,4 +75,17 @@ public class MealPlan {
         }
         return filtered;
     }
+
+
+//REQUIRES: CalorieGoal, proteinGoal, and fatGoal >= 0
+//EFFECTS: Returns true if total calories >= calorieGoal
+//                      and total protein >= protein Goal
+//                      and total fat >= fatGoal
+public boolean dailyMacroRequirements(int calorieGoal, int proteinGoal, int fatGoal) {
+    return false; //stub
+}
+
+
+
+
 }
