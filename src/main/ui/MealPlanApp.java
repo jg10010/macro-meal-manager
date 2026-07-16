@@ -67,18 +67,20 @@ public class MealPlanApp {
 
     public void doAddMeal() {
         System.out.println("Enter meal name");
+        input.nextLine();
         String name = input.nextLine();
 
         System.out.println("Enter calories");
         int calories = input.nextInt();
 
-        System.out.println("Enter proetin");
+        System.out.println("Enter protein");
         int protein = input.nextInt();
 
         System.out.println("Enter fat");
         int fat = input.nextInt();
 
         System.out.println("Enter Dietary Preference");
+        input.nextLine();
         String dietPref = input.nextLine();
 
         Meal meal = new Meal(name, calories, protein, fat, dietPref);
@@ -87,6 +89,7 @@ public class MealPlanApp {
 
     public void doRemoveMeal() {
         System.out.println("Enter the name of meal to remove");
+        input.nextLine();
         String name = input.nextLine();
 
         Boolean removed = mealPlan.removeMeal(name);
@@ -104,19 +107,20 @@ public class MealPlanApp {
             return;
         }
         for (Meal m : mealPlan.getMeals()) {
-            System.out.println(m);
+            System.out.println(m.getName());
         }
     }
 
     public void doFilterMeals() {
         System.out.println("Enter dietary preference to filter by");
+        input.nextLine();
         String pref = input.nextLine();
 
         Boolean found = false;
 
         for (Meal m : mealPlan.getMeals()) {
             if (m.getDietPref().equals(pref)) {
-                System.out.println(m);
+                System.out.println(m.getName());
                 found = true;
             }
             if (!found) {
