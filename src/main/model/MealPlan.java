@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MealPlan {
@@ -48,6 +49,6 @@ public class MealPlan {
     // EFFECTS: Returns a new list of meals with dietary preference
     // that matches dietPref
     public List<Meal> filterDietaryPref(String dietPref) {
-        return null; // stub
+        return new ArrayList<>(); // stub
     }
 }

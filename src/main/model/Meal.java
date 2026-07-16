@@ -53,34 +53,29 @@ public class Meal {
         return (getProtein() * 3) - getFat() - (getCalories() / 20) + 40;
     }
 
-
-    //Effects: Gives a rating to meal the based on the mealScore.
+    // Effects: Gives a rating to meal the based on the mealScore.
     // if mealscore >= 100, then rating = incredible
     // if mealScore >= 80, then rating = very good
-    // if  50 <= mealScore < 80, then rating = good
-    // if  30 <= mealScore < 50, then rating = poor
+    // if 50 <= mealScore < 80, then rating = good
+    // if 30 <= mealScore < 50, then rating = poor
     // if 0 <= mealScore < 30, then rating = very poor
     // if mealScore < 0, then rating = terrible
-public String mealRating() {
-    int score = mealScore();
+    public String mealRating() {
+        int score = mealScore();
 
-    if (score >= 100) {
-        return "incredible";
-    } else if (score >= 80) {
-        return "very good";
-    }   
-    else if (score >= 50) {
-        return "good";
-    }
-    else if (score >= 30) {
-        return "poor";
-    }
-    else if (score >= 0) {
-        return "very poor";
-    }
-    else {
-        return "terrible";
-    }
+        if (score >= 100) {
+            return "incredible";
+        } else if (score >= 80) {
+            return "very good";
+        } else if (score >= 50) {
+            return "good";
+        } else if (score >= 30) {
+            return "poor";
+        } else if (score >= 0) {
+            return "very poor";
+        } else {
+            return "terrible";
+        }
 
-}
+    }
 }
