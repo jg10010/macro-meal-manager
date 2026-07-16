@@ -21,14 +21,28 @@ public class MealPlan {
     // REQUIRES: meal is not null
     // MODIFIES: this
     // EFFECTS: Removes meal from meal plan if present and returns true,
-    // else returns false if meal not present
+    // else returns false if meal not present. uses meal
     public boolean removeMeal(Meal meal) {
         if (meals.contains(meal)) {
             meals.remove(meal);
             return true;
-        } else
+        } else {
             return false;
+        }
+    }
 
+    // REQUIRES: meal is not null
+    // MODIFIES: this
+    // EFFECTS: Removes meal from meal plan if present and returns true,
+    // else returns false if meal not present. uses name
+    public boolean removeMeal(String name) {
+        for (Meal m : meals) {
+            if (m.getName().equals(name)) {
+                meals.remove(m);
+                return true;
+            }
+        }
+        return false;
     }
 
     // EFFECTS: Returns list of meals in MealPlan
@@ -76,21 +90,19 @@ public class MealPlan {
         return filtered;
     }
 
-
-//REQUIRES: CalorieGoal, proteinGoal, and fatGoal >= 0
-//EFFECTS: Returns true if total calories >= calorieGoal
-//                      and total protein >= protein Goal
-//                      and total fat >= fatGoal
-public boolean dailyMacroRequirements(int calorieGoal, int proteinGoal, int fatGoal) {
-    if ((totalCalories() >= calorieGoal) && 
-    (totalProtein() >= proteinGoal) &&
-    (totalFat() >= fatGoal)) {
-        return true;
+    // REQUIRES: CalorieGoal, proteinGoal, and fatGoal >= 0
+    // EFFECTS: Returns true if total calories >= calorieGoal
+    // and total protein >= protein Goal
+    // and total fat >= fatGoal
+    public boolean dailyMacroRequirements(int calorieGoal, int proteinGoal, int fatGoal) {
+        if ((totalCalories() >= calorieGoal)
+                &&
+                (totalProtein() >= proteinGoal)
+                &&
+                (totalFat() >= fatGoal)) {
+            return true;
+        }
+        return false;
     }
-    return false;
-}
-
-
-
 
 }

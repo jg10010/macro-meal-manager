@@ -41,7 +41,7 @@ public class TestMealPlan {
         assertTrue(mealPlan.getMeals().contains(m2));
     }
 
-    // MODIFIES: this
+    
     // EFFECTS: Test succesful removal of meal to mealPlan when meal to
     // be removed is contained in mealPlan
     @Test
@@ -59,6 +59,25 @@ public class TestMealPlan {
         assertFalse(mealPlan.removeMeal(m1));
         assertEquals(0, mealPlan.getMeals().size());
     }
+
+        // EFFECTS: Test succesful removal of meal to mealPlan when meal to
+    // be removed is contained in mealPlan using meal name
+    @Test
+    public void testRemoveMealNameSuccess() {
+        mealPlan.addMeal(m1);
+        assertTrue(mealPlan.removeMeal("Pasta"));
+        assertEquals(0, mealPlan.getMeals().size());
+        assertFalse(mealPlan.getMeals().contains(m1));
+    }
+
+    // EFFECTS: Test failed removal of meal when meal to be removed is not
+    // not contained in mealPlan using meal name
+    @Test
+    public void testRemoveMealNameFail() {
+        assertFalse(mealPlan.removeMeal("Pasta"));
+        assertEquals(0, mealPlan.getMeals().size());
+    }
+
 
     // EFFECTS: Tests whether getMeals gets the correct list of meals from
     // mealPlan
