@@ -1,7 +1,5 @@
 package model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 // Represents a single meal with the amount of 
 // calories, protein, fat, and the dietary preference.
 public class Meal {
