@@ -1,16 +1,22 @@
 package ui;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import model.Meal;
 import model.MealPlan;
-
+import persistence.JsonReader;
+import persistence.JsonWriter;
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 @ExcludeFromJacocoGeneratedReport
 public class MealPlanApp {
     private MealPlan mealPlan;
     private Scanner input;
+    private static final String JSON_STORE = "./data/mealplan.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // MODIFIES: this
     // EFFECTS: Initializes app, creates new mealPlan and scanner, and
@@ -18,6 +24,8 @@ public class MealPlanApp {
     public MealPlanApp() {
         mealPlan = new MealPlan();
         input = new Scanner(System.in);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
 
     }
 
@@ -47,6 +55,8 @@ public class MealPlanApp {
         System.out.println("v -> view meals");
         System.out.println("f -> filter meals");
         System.out.println("d -> check daily macro requirements");
+        System.out.println("s -> save meal plan to file");
+        System.out.println("l -> load meal plan from file");
         System.out.println("q -> quit");
 
     }
@@ -63,6 +73,10 @@ public class MealPlanApp {
             doFilterMeals();
         } else if (command.equals("d")) {
             doDailyMacro();
+        } else if (command.equals("s")) {
+            saveMealPlan();
+        } else if (command.equals("l")) {
+            loadMealPlan();
         } else {
             System.out.println("Invalid selection");
         }
@@ -160,6 +174,29 @@ public class MealPlanApp {
             System.out.println("Daily Macro goals met");
         } else {
             System.out.println("Daily Macro goals not met");
+        }
+    }
+
+    // EFFECTS: saves the meal plan to file
+    private void saveMealPlan() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(mealPlan);
+            jsonWriter.close();
+            System.out.println("Saved meal plan to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads meal plan from file
+    private void loadMealPlan() {
+        try {
+            mealPlan = jsonReader.read();
+            System.out.println("Loaded meal plan from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 

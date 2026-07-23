@@ -10,7 +10,8 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExcludeFromJacocoGeneratedReport
-class JsonWriterTest {
+
+class TestJsonWriter {
 
     // Strategy: write data to a file, then read it back using JsonReader
     // and verify the MealPlan is identical.
@@ -44,8 +45,9 @@ class JsonWriterTest {
         }
     }
 
+    // EFFECTS: tests writing a general MealPlan to file and reading it back
     @Test
-    void testWriterGeneralMealPlan() {
+    void testWriterGeneralMealPlanWriteRead() {
         try {
             MealPlan mp = new MealPlan();
             mp.addMeal(new Meal("Pasta", 400, 20, 10, "vegetarian"));
@@ -60,6 +62,19 @@ class JsonWriterTest {
             mp = reader.read();
 
             assertEquals(2, mp.getMeals().size());
+
+        } catch (IOException e) {
+            fail("Exception should not have been thrown");
+        }
+    }
+
+    // EFFECTS: tests that meals written to file have correct field values when read
+    // back
+    @Test
+    void testWriterGeneralMealPlanMeals() {
+        try {
+            JsonReader reader = new JsonReader("./data/testWriterGeneralMealPlan.json");
+            MealPlan mp = reader.read();
 
             Meal m1 = mp.getMeals().get(0);
             assertEquals("Pasta", m1.getName());
@@ -79,5 +94,5 @@ class JsonWriterTest {
             fail("Exception should not have been thrown");
         }
     }
-}
 
+}

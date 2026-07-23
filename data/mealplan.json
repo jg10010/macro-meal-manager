@@ -1,0 +1,16 @@
+{"meals": [
+    {
+        "dietPref": "1",
+        "protein": 1,
+        "name": "1",
+        "fat": 1,
+        "calories": 1
+    },
+    {
+        "dietPref": "2",
+        "protein": 2,
+        "name": "2",
+        "fat": 2,
+        "calories": 2
+    }
+]}
