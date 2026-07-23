@@ -64,9 +64,10 @@ public class TestMealPlan {
     // be removed is contained in mealPlan using meal name
     @Test
     public void testRemoveMealNameSuccess() {
+        mealPlan.addMeal(m2);
         mealPlan.addMeal(m1);
         assertTrue(mealPlan.removeMeal("Pasta"));
-        assertEquals(0, mealPlan.getMeals().size());
+        assertEquals(1, mealPlan.getMeals().size());
         assertFalse(mealPlan.getMeals().contains(m1));
     }
 
@@ -162,6 +163,13 @@ public class TestMealPlan {
         assertTrue(mealPlan.dailyMacroRequirements(1250, 65, 95));
         // less than case
         assertFalse(mealPlan.dailyMacroRequirements(2000, 200, 200));
+
+        
+        assertFalse(mealPlan.dailyMacroRequirements(1, 100, 1));
+        
+        assertFalse(mealPlan.dailyMacroRequirements(1250, 65, 200));
+        
+        assertFalse(mealPlan.dailyMacroRequirements(2000, 1250, 65));
     }
 
 }
