@@ -1,0 +1,16 @@
+{"meals": [
+    {
+        "dietPref": "vegetarian",
+        "protein": 20,
+        "name": "Pasta",
+        "fat": 10,
+        "calories": 400
+    },
+    {
+        "dietPref": "high-protein",
+        "protein": 40,
+        "name": "Salmon",
+        "fat": 30,
+        "calories": 700
+    }
+]}
