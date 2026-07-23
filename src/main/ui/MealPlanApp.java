@@ -5,6 +5,9 @@ import java.util.Scanner;
 import model.Meal;
 import model.MealPlan;
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
+
+@ExcludeFromJacocoGeneratedReport
 public class MealPlanApp {
     private MealPlan mealPlan;
     private Scanner input;
