@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Represents a list of meals
 public class MealPlan {
     private List<Meal> meals;
 
