@@ -15,3 +15,7 @@ This application is intended for users who need a reliable way to track their me
 - As a user, I want to be able to filter meals by dietary preferences such as vegetarian, vegan, or high-protein.
 
 - As a user, I want to be able to track whether I have met my daily macro requirements.
+
+- As a user, I want to be able to save the meal plan I created.
+
+- As a user, I want to be able to reload the meal plan from a previous session.
