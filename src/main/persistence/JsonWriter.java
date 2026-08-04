@@ -38,7 +38,7 @@ public class JsonWriter {
         for (Meal m : mp.getMeals()) {
             JSONObject mealJson = new JSONObject();
             mealJson.put("name", m.getName());
-            mealJson.put("calories", m.getCalories());
+            mealJson.put("calories", m.getCalories());   
             mealJson.put("protein", m.getProtein());
             mealJson.put("fat", m.getFat());
             mealJson.put("dietPref", m.getDietPref());
