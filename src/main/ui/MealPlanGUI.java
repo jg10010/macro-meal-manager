@@ -1,23 +1,32 @@
 package ui;
 
-import javax.swing.JFrame;
-
 import model.MealPlan;
+
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+
+import java.awt.BorderLayout;
 
 public class MealPlanGUI extends JFrame {
 
-   private MealPlan mealPlan;
+    private MealPlan mealPlan;
+    private NutritionGraphPanel graphPanel;
 
-    // Constructs main window
-	// effects: sets up window in which MealPlan will be displayed
-	public MealPlanGUI() {
-         super("Meal Plan");  // sets the window title
+    public MealPlanGUI() {
+        super("Meal Plan");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
 
+        mealPlan = new MealPlan();
 
-        pack();             
-        setVisible(true);   
+        graphPanel = new NutritionGraphPanel(mealPlan);
+        add(graphPanel, BorderLayout.EAST);
+
+        pack();
+        setVisible(true);
     }
 
     public static void main(String[] args) {
