@@ -1,8 +1,6 @@
 package ui;
 
 import model.MealPlan;
-import model.Meal;
-
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Color;
@@ -12,11 +10,20 @@ public class NutritionGraphPanel extends JPanel {
 
     private MealPlan mealPlan;
 
+    // REQUIRES: mealPlan is not null
+    // MODIFIES: this
+    // EFFECTS: constructs a NutritionGraphPanel that will draw a bar graph
+    // based on the totals in mealPlan; sets preferred panel size
     public NutritionGraphPanel(MealPlan mealPlan) {
         this.mealPlan = mealPlan;
         setPreferredSize(new Dimension(300, 300));
     }
 
+    // REQUIRES: g is not null
+    // MODIFIES: this
+    // EFFECTS: draws three vertical bars representing total calories,
+    // total protein, and total fat in mealPlan; bar heights are
+    // scaled for display; labels are drawn under each bar
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -45,7 +52,10 @@ public class NutritionGraphPanel extends JPanel {
         g.drawString("Protein", 120, 270);
         g.drawString("Fat", 190, 270);
     }
+    
 
+    // MODIFIES: this
+    // EFFECTS: repaints the bar graph to reflect updated mealPlan totals
     public void repaintGraph() {
         repaint();
     }
