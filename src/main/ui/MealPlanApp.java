@@ -18,7 +18,7 @@ public class MealPlanApp {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
-    // MODIFIES: this
+    
     // EFFECTS: Initializes app, creates new mealPlan and scanner, and
     // starts up app
     public MealPlanApp() {
