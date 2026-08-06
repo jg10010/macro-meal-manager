@@ -12,11 +12,19 @@ import javax.swing.JOptionPane;
 
 import java.awt.BorderLayout;
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
+
+@ExcludeFromJacocoGeneratedReport
+
+// Represents the main window of the Meal Plan application that
+// contains all GUI panels and provides menu options for saving
+// and loading a MealPlan.
 public class MealPlanGUI extends JFrame {
 
     private MealPlan mealPlan;
     private NutritionGraphPanel graphPanel;
     private MealListPanel mealListPanel;
+    private ActionPanel actionPanel;
     private static final String JSON_STORE = "./data/mealplan.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -38,6 +46,10 @@ public class MealPlanGUI extends JFrame {
 
         graphPanel = new NutritionGraphPanel(mealPlan);
         add(graphPanel, BorderLayout.EAST);
+
+        actionPanel = new ActionPanel(mealPlan, mealListPanel, graphPanel);
+        add(actionPanel, BorderLayout.CENTER);
+
         setJMenuBar(createMenuBar());
 
         pack();
@@ -95,8 +107,14 @@ public class MealPlanGUI extends JFrame {
             mealPlan = jsonReader.read();
 
             // refresh GUI components
+
+            mealListPanel.updateMealPlan(mealPlan);
             mealListPanel.refresh();
+
+            graphPanel.updateMealPlan(mealPlan);
             graphPanel.repaintGraph();
+            
+            actionPanel.updateMealPlan(mealPlan);
 
             JOptionPane.showMessageDialog(this, "Loaded meal plan!");
         } catch (Exception e) {

@@ -6,6 +6,14 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
+
+@ExcludeFromJacocoGeneratedReport
+
+
+// Represents a graphical panel that displays nutritional information from a MealPlan.
+// The panel visualizes total calories, protein, and fat as scaled vertical bars.
+// The graph updates to reflect the current values stored in the associated MealPlan.
 public class NutritionGraphPanel extends JPanel {
 
     private MealPlan mealPlan;
@@ -52,11 +60,18 @@ public class NutritionGraphPanel extends JPanel {
         g.drawString("Protein", 120, 270);
         g.drawString("Fat", 190, 270);
     }
-    
 
     // MODIFIES: this
     // EFFECTS: repaints the bar graph to reflect updated mealPlan totals
     public void repaintGraph() {
         repaint();
     }
+    
+
+    // MODIFIES: this
+    // EFFECTS: updates mealPlan
+    public void updateMealPlan(MealPlan newMealPlan) {
+        this.mealPlan = newMealPlan;
+    }
+
 }
